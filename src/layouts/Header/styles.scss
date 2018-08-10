@@ -1,12 +1,18 @@
 @import "../layouts_variables";
 @import "../../global_variables";
 
+$item-min-width: 42px;
+
 .root {
   padding: 0 $side-padding-sm;
   width: 100vw;
   height: 42px;
-  background: #599c04;
+  box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #599c04;
+  box-shadow: 0 0 5px #000000;
 
   @media (min-width: $screen-md) {
     padding: 0 $side-padding-md;
@@ -21,10 +27,20 @@
   background: red;
 }
 
-.items {
+.items-container {
+  min-width: $item-min-width;
+  display: flex;
+  flex-direction: row;
   background: blue;
+  align-self: right;
 }
 
-.profile {
-  background: green;
+.item {
+  min-width: $item-min-width;
+  background: purple;
+  margin: 0 0 0 5px;
+
+  &.left-end {
+    margin-left: 0;
+  }
 }
