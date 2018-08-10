@@ -1,15 +1,12 @@
 
-.row-no-margin {
-  margin: 0;
-}
-
-.nav-fixed {
-  height: 42px;
-}
-
-.nav {
+.root {
+  width: 100vw;
   height: 42px;
   background: #599c04;
+}
+
+.row-no-margin {
+  margin: 0;
 }
 
 .nav-wrapper {
