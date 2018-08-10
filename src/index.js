@@ -10,6 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 import {history} from './store/middlewares/history/history';
 import {InitApp} from './store/actions';
+import Root from './layouts/Root';
 import Header from './layouts/Header';
 import Footer from './layouts/Footer';
 import routes from './routes';
@@ -27,7 +28,7 @@ store.dispatch(InitApp());
 ReactDOM.render(
   <Provider store={ store }>
     <ConnectedRouter history={ history }>
-      <div>
+      <Root>
         <Header/>
         <Switch>
           {
@@ -35,7 +36,7 @@ ReactDOM.render(
           }
         </Switch>
         <Footer/>
-      </div>
+      </Root>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
