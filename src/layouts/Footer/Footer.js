@@ -3,6 +3,10 @@ import styles from './styles.scss';
 
 export default class Footer extends React.Component {
 	render() {
-		return <div className={styles.root}></div>;
+		return (
+      <div className={styles.root}>
+				<div className={styles.container}></div>
+			</div>
+		);
 	}
 }

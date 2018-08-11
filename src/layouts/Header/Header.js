@@ -6,11 +6,13 @@ import styles from './styles.scss';
 const Header = ({logout, username, email, profileImg, isLoggedIn}) => {
   return (
     <div className={`${styles.root}`}>
-      <div className={`${styles.brand}`}>LiveSwot</div>
-      <div className={`${styles["items-container"]}`}>
-        <div className={`${styles.item} ${styles["left-end"]}`}>Item 1</div>
-        <div className={styles.item}>Item 2</div>
-        <div className={styles.item}>Item 3</div>
+      <div className={styles.container}>
+        <div className={`${styles.brand}`}>LiveSwot</div>
+        <div className={`${styles["items-container"]}`}>
+          <div className={`${styles.item} ${styles["left-end"]}`}>Item 1</div>
+          <div className={styles.item}>Item 2</div>
+          <div className={styles.item}>Item 3</div>
+        </div>
       </div>
     </div>
   );

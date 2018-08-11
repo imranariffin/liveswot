@@ -1,4 +1,25 @@
+@import "../layouts_variables";
+@import "../../global_variables";
+
 .root {
+  width: 100vw;
   height: 24px;
   background: #f99090;
+}
+
+.container {
+  height: 100%;
+  width: $width-sm;
+  padding: $padding-sm;
+  margin: 0 auto;
+
+  @media (min-width: $screen-md) {
+    width: $width-md;
+    padding: $padding-md;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: $width-lg;
+    padding: $padding-lg;
+  }
 }

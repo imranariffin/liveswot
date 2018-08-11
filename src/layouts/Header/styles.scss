@@ -4,22 +4,30 @@
 $item-min-width: 42px;
 
 .root {
-  padding: 0 $side-padding-sm;
   width: 100vw;
   height: 42px;
+  background: #599c04;
+  box-shadow: 0 0 5px #000000;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: $padding-sm;
+  margin: 0 auto;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #599c04;
-  box-shadow: 0 0 5px #000000;
 
   @media (min-width: $screen-md) {
-    padding: 0 $side-padding-md;
+    padding: $padding-md;
+    width: $width-md;
   }
 
   @media (min-width: $screen-lg) {
-    padding: 0 $side-padding-lg;
+    padding: $padding-lg;
+    width: $width-lg;
   }
 }
 
