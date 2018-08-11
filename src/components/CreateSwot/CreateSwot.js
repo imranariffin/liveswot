@@ -49,13 +49,13 @@ class CreateSwot extends React.Component {
           <Card>
             <form className={styles.form}>
               <div className={styles['input-container']}>
-                <input type='text' name='title' className={styles['text-input']}/>
+                <input type='text' ref='title' className={styles['text-input']}/>
               </div>
               <div className={styles['input-container']}>
-                <input type='text' name='description' className={styles['text-input']}/>
+                <input type='text' ref='description' className={styles['text-input']}/>
               </div>
               <div className={`${styles['input-container']} ${styles['submit-container']}`}>
-                <Button>Create</Button>
+                <Button onClick={this.submit}>Create</Button>
                 <Button cancel onClick={this.cancel}>Cancel</Button>
               </div>
             </form>
