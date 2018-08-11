@@ -6,7 +6,7 @@ $item-min-width: 42px;
 .root {
   width: 100vw;
   height: 42px;
-  background: #599c04;
+  background: $theme-color;
   box-shadow: 0 0 5px #000000;
 }
 
