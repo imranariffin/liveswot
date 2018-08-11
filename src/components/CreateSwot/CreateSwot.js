@@ -35,8 +35,7 @@ class CreateSwot extends React.Component {
   }
 
   render() {
-    // const {isEdit} = this.state;
-    const isEdit = true;
+    const {isEdit} = this.state;
 
     if (isEdit) {
       return (
@@ -51,7 +50,7 @@ class CreateSwot extends React.Component {
               </div>
               <div className={`${styles['input-container']} ${styles['submit-container']}`}>
                 <Button>Create</Button>
-                <Button cancel>Cancel</Button>
+                <Button cancel onClick={this.cancel}>Cancel</Button>
               </div>
             </form>
           </Card>
@@ -60,42 +59,10 @@ class CreateSwot extends React.Component {
     }
 
     return (
-      <button className={`btn ${styles.button}`} onClick={this.edit}>
-        create new swot
-      </button>
+      <div className={`${styles["input-container"]} ${styles["submit-container"]}`}>
+        <Button onClick={this.edit}>Create Swot</Button>
+      </div>
     );
-
-    // let component = (
-    //   <form method={`POST`} onSubmit={this.submit}>
-    //     <input type={`text`} ref={`title`} placeholder={`SWOT Title`}/>
-    //     <input type={`text`} ref={`description`} placeholder={`Description`}/>
-    //     <input type={`submit ${styles.hidden}`}/>
-    //     <button className={`btn ${styles["submit-button"]}`} onClick={this.submit}>
-    //       create
-    //     </button>
-    //     <button className={`btn ${styles["cancel-button"]}`} onClick={() => this.cancel()}>
-    //       cancel
-    //     </button>
-    //   </form>
-    // );
-
-    // if (!isEdit) {
-    //   component = (
-    //     <button className={`btn ${styles.button}`} onClick={this.edit}>
-    //       create new swot
-    //     </button>
-    //   );
-    // }
-    //
-    // return (
-    //   <div className={`row ${isEdit ? styles.card: ''} ${styles.container}`}>
-    //     <div className={`col s0 m2 l2`}></div>
-    //     <div className={`col s12 m8 l8 ${styles["align-center"]}`}>
-    //       {component}
-    //     </div>
-    //     <div className={`col s0 m2 l2`}></div>
-    //   </div>
-    // );
   }
 }
 
