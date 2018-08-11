@@ -35,15 +35,29 @@ class CreateSwot extends React.Component {
 
   render() {
     // const {isEdit} = this.state;
-
     const isEdit = true;
+
     if (isEdit) {
       return (
         <div className={styles.root}>
-          <Card style={{background: 'grey'}}></Card>
+          <Card>
+            <form className={styles.form}>
+              <div className={styles['input-container']}>
+                <input type='text' name='title' className={styles['text-input']}/>
+              </div>
+              <div className={styles['input-container']}>
+                <input type='text' name='description' className={styles['text-input']}/>
+              </div>
+              <div className={styles['input-container']}>
+                <input type='submit'/>
+                <input type='button' name='cancel'/>
+              </div>
+            </form>
+          </Card>
         </div>
       );
     }
+
     return (
       <button className={`btn ${styles.button}`} onClick={this.edit}>
         create new swot
