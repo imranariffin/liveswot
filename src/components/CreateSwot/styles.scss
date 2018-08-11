@@ -1,14 +1,24 @@
+$input-width: 450px;
+$btn-primary-color: rgb(89, 156, 4);
+$btn-cancel-color: rgb(220, 40, 40);
+
 .root {
   margin: 0 50px;
 }
 
-.container {
-  padding: 15px 0;
-  transition: 0.45s ease-in-out;
+.form {
+  box-sizing: border-box;
+  padding: 15px;
 }
 
-.align-center {
-  text-align: center;
+.input-container {
+  width: $input-width;
+  margin: 0 auto 10px auto;
+}
+
+.text-input {
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .submit-button {
@@ -19,12 +29,4 @@
 .cancel-button {
   background: rgb(220, 40, 40);
   margin: 0 5px;
-}
-
-.button {
-  background: rgb(89, 156, 4);
-}
-
-.hidden {
-  display: none;
 }
