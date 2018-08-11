@@ -1,5 +1,26 @@
+@import "../layouts_variables";
+@import "../../global_variables";
+
 .root {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.container {
   height: 100%;
+  margin: 0 auto;
+  width: $width-sm;
+  padding: $padding-sm;
+
+  @media (min-width: $screen-md) {
+    width: $width-md;
+    padding: $padding-md;
+  }
+
+  @media (min-width: $screen-lg) {
+    width: $width-lg;
+    padding: $padding-lg;
+  }
 }
 
 .mid-cell {
