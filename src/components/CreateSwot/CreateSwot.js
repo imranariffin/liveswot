@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../Card';
 import styles from './styles.scss';
 import Button from '../Button';
+import TextInput from "../TextInput/TextInput";
 
 class CreateSwot extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class CreateSwot extends React.Component {
           <Card>
             <form className={styles.form}>
               <div className={styles['input-container']}>
-                <input type='text' ref='title' className={styles['text-input']}/>
+                <TextInput type='text' ref='title' className={styles['text-input']}/>
               </div>
               <div className={styles['input-container']}>
                 <input type='text' ref='description' className={styles['text-input']}/>
