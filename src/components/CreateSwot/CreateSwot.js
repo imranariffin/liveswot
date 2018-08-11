@@ -15,14 +15,19 @@ class CreateSwot extends React.Component {
     this.cancel = this.cancel.bind(this);
     this.clear = this.clear.bind(this);
     this.edit = this.edit.bind(this);
+
+    /* refs */
+    this.title = React.createRef();
+    this.description = React.createRef();
   }
 
   submit(e) {
     e.preventDefault();
-    this.props.onSubmit(
-      this.refs.title.value,
-      this.refs.description.value,
-    );
+
+    const title = this.title.current.value;
+    const description = this.description.current.value;
+    this.props.onSubmit(title, description);
+
     this.clear();
   }
 
@@ -34,8 +39,8 @@ class CreateSwot extends React.Component {
   edit() {this.setState({isEdit: true});}
 
   clear() {
-    this.refs.title.value = '';
-    this.refs.description.value = '';
+    this.title.current.value = '';
+    this.description.current.value = '';
   }
 
   render() {
@@ -50,10 +55,10 @@ class CreateSwot extends React.Component {
           <Card>
             <form className={styles.form}>
               <div className={styles['input-container']}>
-                <TextInput type='text' ref='title' className={styles['text-input']}/>
+                <TextInput type='text' label='Title' forwardedRef={this.title} className={styles['text-input']}/>
               </div>
               <div className={styles['input-container']}>
-                <input type='text' ref='description' className={styles['text-input']}/>
+                <TextInput type='text' label='Description' forwardedRef={this.description} className={styles['text-input']}/>
               </div>
               <div className={`${styles['input-container']} ${styles['submit-container']}`}>
                 <Button onClick={this.submit}>Create</Button>
