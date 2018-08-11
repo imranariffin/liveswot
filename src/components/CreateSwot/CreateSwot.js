@@ -25,7 +25,10 @@ class CreateSwot extends React.Component {
     this.clear();
   }
 
-  cancel() {this.setState({isEdit: false});}
+  cancel(e) {
+    e.preventDefault();
+    this.setState({isEdit: false});
+  }
 
   edit() {this.setState({isEdit: true});}
 
@@ -37,9 +40,12 @@ class CreateSwot extends React.Component {
   render() {
     const {isEdit} = this.state;
 
-    if (isEdit) {
-      return (
-        <div className={styles.root}>
+    return (
+      <div>
+        <div className={`${isEdit ? styles.hide : ''} ${styles["input-container"]} ${styles["submit-container"]}`}>
+          <Button onClick={this.edit}>Create Swot</Button>
+        </div>
+        <div className={`${styles.root} ${isEdit ? '' : styles.hide}`}>
           <Card>
             <form className={styles.form}>
               <div className={styles['input-container']}>
@@ -55,12 +61,6 @@ class CreateSwot extends React.Component {
             </form>
           </Card>
         </div>
-      );
-    }
-
-    return (
-      <div className={`${styles["input-container"]} ${styles["submit-container"]}`}>
-        <Button onClick={this.edit}>Create Swot</Button>
       </div>
     );
   }
