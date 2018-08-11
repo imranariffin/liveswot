@@ -1,6 +1,4 @@
 $input-width: 450px;
-$btn-primary-color: rgb(89, 156, 4);
-$btn-cancel-color: rgb(220, 40, 40);
 
 .root {
   margin: 0 50px;
@@ -14,6 +12,12 @@ $btn-cancel-color: rgb(220, 40, 40);
 .input-container {
   width: $input-width;
   margin: 0 auto 10px auto;
+}
+
+.submit-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
 }
 
 .text-input {

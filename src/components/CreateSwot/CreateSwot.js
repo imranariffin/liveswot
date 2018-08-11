@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card';
 import styles from './styles.scss';
+import Button from '../Button';
 
 class CreateSwot extends React.Component {
   constructor(props) {
@@ -48,9 +49,9 @@ class CreateSwot extends React.Component {
               <div className={styles['input-container']}>
                 <input type='text' name='description' className={styles['text-input']}/>
               </div>
-              <div className={styles['input-container']}>
-                <input type='submit'/>
-                <input type='button' name='cancel'/>
+              <div className={`${styles['input-container']} ${styles['submit-container']}`}>
+                <Button>Create</Button>
+                <Button cancel>Cancel</Button>
               </div>
             </form>
           </Card>
