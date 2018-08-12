@@ -4,13 +4,16 @@ import Kebab from '../Kebab/';
 
 const SwotList = (props) => {
   // const swotImg = '';
-  // const {swotId, title, description, swotDateCreated, creatorUserName} = props;
+  const {swotId, title, description, swotDateCreated, creatorUserName} = props;
 
   return (
     <div className={styles.root}>
       <div className={styles.row}>
         <div className={styles.creator}></div>
-        <div className={styles.content}></div>
+        <div className={styles.content}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.description}>{description}</div>
+        </div>
         <div className={styles.actions}>
           <Kebab/>
         </div>
