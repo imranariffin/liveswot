@@ -11,6 +11,7 @@
   margin: 0 auto;
   width: $width-sm;
   padding: $padding-sm;
+  box-sizing: border-box;
 
   @media (min-width: $screen-md) {
     width: $width-md;
