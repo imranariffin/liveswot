@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.scss';
+import styles from './Root.scss';
 
 const Root = (props) => {
   const {children} = props;

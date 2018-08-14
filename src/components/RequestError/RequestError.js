@@ -1,4 +1,4 @@
-import styles from './styles.scss';
+import styles from './RequestError.scss';
 import React from 'react';
 
 class RequestError extends React.Component {

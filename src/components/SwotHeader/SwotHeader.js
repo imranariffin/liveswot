@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.scss';
+import styles from './SwotHeader.scss';
 import PropTypes from 'prop-types';
 import AddMember from './components/AddMember';
 import DropDown from './components/DropDown';

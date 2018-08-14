@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SwotCard from '../../components/SwotCard';
 import SwotHeader from '../../components/SwotHeader';
 import Loading from '../../components/Loading';
-import styles from './styles.scss';
+import styles from './Swot.scss';
 
 
 export default class Swot extends Component {

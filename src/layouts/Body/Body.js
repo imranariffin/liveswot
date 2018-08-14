@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './styles.scss';
+import styles from './Body.scss';
 
 const Body = (Component) => (props) => {
   return (

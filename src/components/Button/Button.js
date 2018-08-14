@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles.scss';
+import styles from './Button.scss';
 
 const Button = (props) => {
   const {children, disabled, cancel, onClick} = props;

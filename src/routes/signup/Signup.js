@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.scss';
+import styles from './Signup.scss';
 import RequestButton from '../../components/RequestButton';
 import RequestError from '../../components/RequestError';
 import {Link} from 'react-router-dom';

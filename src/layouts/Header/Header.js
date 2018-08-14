@@ -1,6 +1,6 @@
 import React from 'react';
 import { localizedText } from '../../utils/index';
-import styles from './styles.scss';
+import styles from './Header.scss';
 
 const Header = ({logout, username, email, profileImg, isLoggedIn}) => {
   return (

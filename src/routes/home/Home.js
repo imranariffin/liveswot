@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import EmptyList from '../../components/EmptyList';
 import SwotList from '../../components/SwotList';
-import styles from './styles.scss';
+import styles from './Home.scss';
 import CreateSwot from '../../components/CreateSwot';
 
 class Home extends React.Component {

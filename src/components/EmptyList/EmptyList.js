@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.scss';
+import styles from './EmptyList.scss';
 
 const EmptyList = ({isLoading}) => {
   let text = 'No SWOT to display';

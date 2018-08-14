@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Card';
-import styles from './styles.scss';
+import styles from './CreateSwot.scss';
 import Button from '../Button';
 import TextInput from "../TextInput/TextInput";
 

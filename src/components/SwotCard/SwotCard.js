@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import SwotItem from '../SwotItem';
 import {localizedText} from '../../utils/index';
-import styles from './styles.scss';
+import styles from './SwotCard.scss';
 
 const DURATION_INVISIBLE = 300;
 
