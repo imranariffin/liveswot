@@ -32,7 +32,7 @@ class Home extends React.Component {
           {(
             swots.length > 0 &&
             swots.map((swot, i) => (
-              <div style={{marginBottom: '1px'}} key={`swot-${i}`}>
+              <div className={styles['list-container']} key={`swot-${i}`}>
                 <SwotList swot={swot}/>
               </div>))
           )
