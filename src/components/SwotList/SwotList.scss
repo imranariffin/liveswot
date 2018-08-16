@@ -29,6 +29,7 @@ $action-width: 15px;
 .creator {
   height: 100%;
   width: $height;
+  flex-shrink: 0;
 }
 
 .content {
@@ -37,6 +38,7 @@ $action-width: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 
   > div {
     width: 100%;
@@ -44,10 +46,16 @@ $action-width: 15px;
 
   > .title {
     font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   > .description {
     font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
