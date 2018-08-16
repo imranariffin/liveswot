@@ -32,7 +32,13 @@ class SwotList extends React.Component {
         onMouseLeave={this.onMouseLeave}
       >
         <div className={styles.row}>
-          <div className={styles.creator}></div>
+          <div className={styles.creator}>
+            <div className={styles.container}>
+              <div className={styles.img}>
+                <span className={styles.hey}>S</span>
+              </div>
+            </div>
+          </div>
           <div className={styles.content}>
             <div className={styles.title}>{title}</div>
             <div className={styles.description}>{description}</div>

@@ -1,6 +1,7 @@
 @import '../../global_variables';
 
 $height: 70px;
+$img-size: 50px;
 $action-width: 15px;
 
 .root {
@@ -31,6 +32,28 @@ $action-width: 15px;
   height: 100%;
   width: $height;
   flex-shrink: 0;
+  display: flex;
+
+  > .container {
+    width: $img-size;
+    height: $img-size;
+    margin: auto auto;
+
+    > .img {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      background: $theme-color;
+      border-radius: 50%;
+    }
+  }
+}
+
+.hey {
+  font-size: 18px;
 }
 
 .content {
