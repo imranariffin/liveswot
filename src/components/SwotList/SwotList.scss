@@ -1,56 +1,68 @@
-$height: 50px;
+@import '../../global_variables';
+
+$height: 70px;
 $action-width: 15px;
 
 .root {
-  background: red;
+  text-decoration: none;
+  color: inherit;
+  background: white;
   height: $height;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 15px;
+  padding: 5px 10px;
   display: flex;
   flex-direction: row;
+
+  &:hover {
+    background: $almost-white;
+  }
 }
 
 .row {
   width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 }
 
 .creator {
-  background: blue;
   height: 100%;
   width: $height;
 }
 
 .content {
-  background: yellow;
   height: 100%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
+  justify-content: center;
 
   > div {
     width: 100%;
   }
 
   > .title {
-    height: 16px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #599C04;
+    font-size: 24px;
   }
 
   > .description {
-    flex-grow: 1;
-    font-size: 12px;
-    background: aqua;
+    font-size: 14px;
   }
 }
 
 .actions {
-  background: green;
-  width: $action-width;
-  height: 100%;
+
+  flex-direction: row;
+  flex-grow: 0;
+
+  @media (min-width: $screen-md) {
+    display: none;
+
+    &.active {
+      display: flex;
+      flex-grow: 0;
+      flex-direction: row;
+    }
+  }
 }
