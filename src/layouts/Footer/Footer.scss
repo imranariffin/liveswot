@@ -10,7 +10,6 @@
 .container {
   height: 100%;
   width: $width-sm;
-  padding: $padding-sm;
 
   @media (min-width: $screen-md) {
     width: $width-md;
