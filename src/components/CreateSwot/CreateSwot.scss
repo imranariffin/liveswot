@@ -17,12 +17,16 @@ $input-width: 100%;
   box-sizing: border-box;
   padding: 15px;
 
+  @media (min-width: $screen-sm) {
+    padding: 15px 75px;
+  }
+
   @media (min-width: $screen-md) {
-    padding: 15px 50px;
+    padding: 15px 140px;
   }
 
   @media (min-width: $screen-lg) {
-    padding: 15px 75px;
+    padding: 15px 175px;
   }
 }
 
