@@ -17,35 +17,43 @@ $item-min-width: 42px;
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   @media (min-width: $screen-sm) {
     padding: $padding-sm;
     width: $width-sm;
+    justify-content: space-between;
   }
 
   @media (min-width: $screen-md) {
     padding: $padding-md;
     width: $width-md;
+    justify-content: space-between;
   }
 
   @media (min-width: $screen-lg) {
     padding: $padding-lg;
     width: $width-lg;
+    justify-content: space-between;
   }
 }
 
 .brand {
-  background: red;
+  font-size: 2.1rem;
+  color: white;
 }
 
 .items-container {
   min-width: $item-min-width;
-  display: flex;
+  display: none;
   flex-direction: row;
   background: blue;
   align-self: right;
+
+  @media (min-width: $screen-sm) {
+    display: flex;
+  }
 }
 
 .item {
