@@ -11,7 +11,6 @@ $action-width: 15px;
   height: $height;
   width: 100%;
   box-sizing: border-box;
-  padding: 5px 10px;
   display: flex;
   flex-direction: row;
   cursor: default;
@@ -87,6 +86,7 @@ $action-width: 15px;
 
   flex-direction: row;
   flex-grow: 0;
+  padding: 5px 5px 0 0;
 
   @media (min-width: $screen-md) {
     display: none;
