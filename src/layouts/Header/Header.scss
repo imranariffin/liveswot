@@ -11,14 +11,19 @@ $item-min-width: 42px;
 }
 
 .container {
-  width: 100%;
+  width: $width-xs;
   height: 100%;
-  padding: $padding-sm;
+  padding: $padding-xs;
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: $screen-sm) {
+    padding: $padding-sm;
+    width: $width-sm;
+  }
 
   @media (min-width: $screen-md) {
     padding: $padding-md;
