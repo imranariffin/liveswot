@@ -9,9 +9,14 @@
 .container {
   height: 100%;
   margin: 0 auto;
-  width: $width-sm;
-  padding: $padding-sm;
+  width: $width-xs;
+  padding: $padding-xs;
   box-sizing: border-box;
+
+  @media (min-width: $screen-sm) {
+    width: $width-sm;
+    padding: $padding-sm;
+  }
 
   @media (min-width: $screen-md) {
     width: $width-md;

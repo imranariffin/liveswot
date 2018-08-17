@@ -1,7 +1,8 @@
+@import '../../global_variables';
+
 $input-width: 100%;
 
 .root {
-  margin: 0 50px;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   height: auto;
@@ -15,6 +16,14 @@ $input-width: 100%;
 .form {
   box-sizing: border-box;
   padding: 15px;
+
+  @media (min-width: $screen-md) {
+    padding: 15px 50px;
+  }
+
+  @media (min-width: $screen-lg) {
+    padding: 15px 75px;
+  }
 }
 
 .input-container {
