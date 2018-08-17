@@ -22,12 +22,12 @@ class SwotList extends React.Component {
 
   render() {
     // const swotImg = '';
-    const {swotId, title, description, swotDateCreated, creatorUserName} = this.props;
+    const {swotId, title, description, last, swotDateCreated, creatorUserName} = this.props;
 
     return (
       <Link
         to={`swots/${swotId}`}
-        className={styles.root}
+        className={`${styles.root} ${last ? styles.last : ''}`}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
       >

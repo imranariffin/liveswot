@@ -21,22 +21,15 @@ class Home extends React.Component {
           <h5>Your swots</h5>
           {(
             userSwots.length > 0 &&
-            userSwots.map((swot, i) => (
-              <div className={styles["list-container"]} key={`userSwot-${i}`}>
-                <SwotList swot={swot}/>
-              </div>))
+            userSwots.map((swot, i) => (<SwotList swot={swot} key={i} last={i === userSwots.length-1}/>))
           ) || <EmptyList isLoading={isLoading} />}
         </div>
         <div>
           <h5>Swots you are contributing to</h5>
           {(
             swots.length > 0 &&
-            swots.map((swot, i) => (
-              <div className={styles['list-container']} key={`swot-${i}`}>
-                <SwotList swot={swot}/>
-              </div>))
-          )
-          || (<EmptyList isLoading={isLoading} />)}
+            swots.map((swot, i) => (<SwotList swot={swot} key={i} last={i === swots.length-1}/>))
+          ) || (<EmptyList isLoading={isLoading} />)}
         </div>
       </div>
     );
