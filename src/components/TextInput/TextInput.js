@@ -1,16 +1,26 @@
 import React from 'react';
+import PropType from 'prop-types';
 import styles from './TextInput.scss';
 
 const TextInput = (props) => {
-  const {label, forwardedRef} = props;
+  const {label, forwardedRef, type, required} = props;
   return (
     <div className={styles.root}>
-      <input type='text' required className={styles.input} ref={forwardedRef}/>
+      <input type={type ? type : 'text'} required={required} className={styles.input} ref={forwardedRef}/>
       <span className={styles.highlight}></span>
       <span className={styles.bar}></span>
       <label className={styles.label}>{label}</label>
     </div>
   );
+};
+
+TextInput.propTypes = {
+  label: PropType.string.isRequired,
+  forwardedRef: PropType.shape({
+    current: PropType.object
+  }).isRequired,
+  type: PropType.string,
+  required: PropType.bool.isRequired,
 };
 
 export default TextInput;
