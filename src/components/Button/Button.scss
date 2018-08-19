@@ -5,7 +5,6 @@ $btn-cancel-color: #ce1126;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  margin: 0 8px;
   border: none;
   border-radius: 2px;
   padding: 0 16px;
@@ -16,8 +15,8 @@ $btn-cancel-color: #ce1126;
   text-overflow: ellipsis;
   text-transform: uppercase;
   color: #fff;
-
   background-color: $btn-primary-color;
+
   &.cancel {
     background-color: #ce1126;
   }

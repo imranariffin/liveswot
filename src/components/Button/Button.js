@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Button.scss';
+import {CANCEL, REQUEST} from './constants';
+
+export const BUTTON_STYLES = {
+  [CANCEL]: styles.cancel,
+  [REQUEST]: styles.request,
+};
+
+
 
 const Button = (props) => {
-  const {children, disabled, cancel, onClick} = props;
+  const {children, disabled, type, onClick} = props;
 
-  const className = `${styles.root} ${cancel ? styles.cancel : ''}`;
+  const btnStyle = (type in BUTTON_STYLES) ? BUTTON_STYLES[type] : '';
+  const className = `${styles.root} ${btnStyle}`;
 
   return (
     <button
