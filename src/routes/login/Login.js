@@ -49,7 +49,7 @@ class Login extends React.Component {
               </Button>
             </form>
             <p>Not signed up yet? Signup <Link to={`signup`}>here</Link></p>
-            <RequestError errors={user.errors}/>
+            <RequestError errors={user.errors} errorType={'user'}/>
           </div>
         </Card>
       </div>
