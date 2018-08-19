@@ -9,7 +9,7 @@ const TextInput = (props) => {
       <input type={type ? type : 'text'} required={required} className={styles.input} ref={forwardedRef}/>
       <span className={styles.highlight}></span>
       <span className={styles.bar}></span>
-      <label className={styles.label}>{label}</label>
+      <label className={styles.label}>{label + (required ? '*' : '')}</label>
     </div>
   );
 };
