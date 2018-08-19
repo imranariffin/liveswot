@@ -2,7 +2,8 @@ import React from 'react';
 import Card from '../Card';
 import styles from './CreateSwot.scss';
 import Button from '../Button';
-import TextInput from "../TextInput/TextInput";
+import TextInput from '../TextInput/TextInput';
+import {CANCEL} from '../Button/constants';
 
 class CreateSwot extends React.Component {
   constructor(props) {
@@ -55,14 +56,24 @@ class CreateSwot extends React.Component {
           <Card>
             <form className={styles.form}>
               <div className={styles['input-container']}>
-                <TextInput type='text' label='Title' forwardedRef={this.title} className={styles['text-input']}/>
+                <TextInput
+                  type={'text'}
+                  label={'Title'}
+                  required={true}
+                  forwardedRef={this.title}
+                />
               </div>
               <div className={styles['input-container']}>
-                <TextInput type='text' label='Description' forwardedRef={this.description} className={styles['text-input']}/>
+                <TextInput
+                  type={'text'}
+                  label={'Description'}
+                  required={true}
+                  forwardedRef={this.description}
+                />
               </div>
               <div className={`${styles['input-container']} ${styles['submit-container']}`}>
                 <Button onClick={this.submit}>Create</Button>
-                <Button cancel onClick={this.cancel}>Cancel</Button>
+                <Button type={CANCEL} onClick={this.cancel}>Cancel</Button>
               </div>
             </form>
           </Card>
