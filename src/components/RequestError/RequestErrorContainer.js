@@ -7,7 +7,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    clearError: () => dispatch(ClearError('user'))
+    clearError: (errorType) => () => dispatch(ClearError(errorType))
   };
 };
 
