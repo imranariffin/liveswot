@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
   const {user} = state;
   return {
     user: user,
-    disabled: user.isLoading ? 'disabled' : '',
+    isLoading: user.isLoading,
   };
 };
 

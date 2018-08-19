@@ -1,52 +1,58 @@
 import React from 'react';
-import styles from './Login.scss';
-import RequestButton from '../../components/RequestButton';
-import RequestError from '../../components/RequestError/RequestError';
 import {Link} from 'react-router-dom';
+import styles from './Login.scss';
+import RequestError from '../../components/RequestError';
 import Card from '../../components/Card/Card';
+import TextInput from '../../components/TextInput';
+import Button from '../../components/Button';
 
 class Login extends React.Component {
 
   constructor(props) {
     super(props);
     this.login = this.login.bind(this);
+    this.email = React.createRef();
+    this.password = React.createRef();
   }
 
   login(e) {
     e.preventDefault();
-    this.props.login(this.refs.email.value, this.refs.password.value);
+    const email = this.email.current.value;
+    const password = this.password.current.value;
+    this.props.login(email, password);
   }
 
   render() {
-    const {user, disabled} = this.props;
+    const {user, isLoading} = this.props;
 
     return (
-      <Card>
-        <div className={styles['form-container']}>
-          <h4 className={styles.title}>Login to LiveSWOT</h4>
-          <form className={styles.form} onSubmit={this.login}>
-            <input
-              type='email'
-              ref='email'
-              placeholder={`Email`}
-            />
-            <input
-              type='password'
-              ref='password'
-              placeholder={`Password`}
-            />
-            <input type='submit' className={styles.hidden}/>
-            <RequestButton
-              text={`login`}
-              disabled={disabled}
-              requestedItem={user}
-              onClick={this.login}
-            />
-          </form>
-          <p>Not signed up yet? Signup <Link to={`signup`}>here</Link></p>
-          <RequestError errors={user.errors}/>
-        </div>
-      </Card>
+      <div className={styles.root}>
+        <Card>
+          <div className={styles['form-container']}>
+            <h1 className={styles.title}>Login to LiveSWOT</h1>
+            <form className={styles.form} onSubmit={this.login}>
+              <TextInput
+                forwardedRef={this.email}
+                label={`Email`}
+                type={`email`}
+                required={true}
+              />
+              <TextInput
+                forwardedRef={this.password}
+                label={`Password`}
+                type={`password`}
+                required={true}
+              />
+              <input type='submit' className={styles.hidden}/>
+              <Button type={`request`} disabled={isLoading} onClick={this.login}>
+                login
+              </Button>
+            </form>
+            <p>Not signed up yet? Signup <Link to={`signup`}>here</Link></p>
+            <RequestError errors={user.errors}/>
+          </div>
+        </Card>
+      </div>
     );
   }
 }

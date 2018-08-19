@@ -1,14 +1,23 @@
+.root {
+  width: 450px;
+  margin: auto;
+}
+
 .form-container {
-  padding: 15px;
+  padding: 35px;
 }
 
 .form {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .title {
   text-align: center;
   margin: 25px 0 45px 0;
+  font-weight: normal;
 }
 
 .hidden {
