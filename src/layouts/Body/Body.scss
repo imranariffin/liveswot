@@ -17,16 +17,19 @@
   @media (min-width: $screen-sm) {
     width: $width-sm;
     padding: $padding-sm;
+    transform: translateX(8px);
   }
 
   @media (min-width: $screen-md) {
     width: $width-md;
     padding: $padding-md;
+    transform: translateX(8px);
   }
 
   @media (min-width: $screen-lg) {
     width: $width-lg;
     padding: $padding-lg;
+    transform: translateX(8px);
   }
 }
 
