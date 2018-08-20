@@ -1,6 +1,8 @@
 
 const en = {
-  title: 'LiveSWOT',
+  brand: 'LiveSWOT',
+  login: 'Login',
+  logout: 'Logout',
   swot: {
     cardType: {
       strength: 'Strengths',

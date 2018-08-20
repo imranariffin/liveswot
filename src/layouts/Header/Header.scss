@@ -50,7 +50,6 @@ $item-min-width: 42px;
   min-width: $item-min-width;
   display: none;
   flex-direction: row;
-  background: blue;
   align-self: right;
 
   @media (min-width: $screen-sm) {
@@ -60,10 +59,15 @@ $item-min-width: 42px;
 
 .item {
   min-width: $item-min-width;
-  background: purple;
   margin: 0 0 0 5px;
 
   &.left-end {
     margin-left: 0;
+  }
+
+  > * > span.link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
   }
 }
