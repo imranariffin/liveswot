@@ -1,0 +1,31 @@
+$height: 40px;
+
+.root {
+  width: 100%;
+  height: $height;
+  background: #599C04;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+
+  &:hover {
+    background: #a4d49f;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.text {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.icon {
+  align-items: center;
+  width: $height;
+  height: $height;
+}
