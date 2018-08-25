@@ -1,6 +1,7 @@
 .root {
   display: flex;
   width: 100%;
+  margin-top: 5px;
 
   &.hidden {
     display: none;
@@ -15,6 +16,14 @@
 .input {
   width: 100%;
   box-sizing: border-box;
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding-left: 5px;
+
+  &:focus {
+    border: 1px solid #599C04;
+    outline-color: #599C04;
+  }
 }
 
 .close-button {
