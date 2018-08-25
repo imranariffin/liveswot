@@ -2,22 +2,24 @@ import React from 'react';
 import styles from './SwotHeader.scss';
 import PropTypes from 'prop-types';
 import AddMember from './components/AddMember';
-import DropDown from '../DropDown';
 import Card from "../Card/Card";
 import Kebab from "../Kebab/Kebab";
+import DropDown from '../DropDown';
 
 class SwotHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
       addMemberHidden: true,
+      dropDownHidden: true,
       userName: '',
     };
 
     this.hideAddMember = this.hideAddMember.bind(this);
     this.showAddMember = this.showAddMember.bind(this);
     this.updateUserName = this.updateUserName.bind(this);
+    this.showDropDown = this.showDropDown.bind(this);
+    this.hideDropDown = this.hideDropDown.bind(this);
   }
 
   hideAddMember() {this.setState({addMemberHidden: true});}
@@ -27,18 +29,13 @@ class SwotHeader extends React.Component {
   updateUserName(e) {this.setState({userName: e.target.value});}
 
   hideDropDown = (event) => {
-    if (event.target.id !== 'kebab') {
-      this.setState({active: false});
-    }
+    event.preventDefault();
+    this.setState({dropDownHidden: true}, () => document.removeEventListener('click', this.hideDropDown));
   };
 
-  toggleDropDown = () => {
-    this.setState({active: !this.state.active});
+  showDropDown = () => {
+    this.setState({dropDownHidden: false}, () => document.addEventListener('click', this.hideDropDown));
   };
-
-  componentDidMount() {
-    document.addEventListener('click', this.hideDropDown)
-  }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.hideDropDown);
@@ -83,9 +80,9 @@ class SwotHeader extends React.Component {
           updateUserName={this.updateUserName}
         />
         <div className={styles['kebab-container']}>
-          <Kebab/>
+          <Kebab onClick={this.showDropDown}/>
         </div>
-        <DropDown hidden={true} items={items}/>
+        <DropDown hidden={this.state.dropDownHidden} items={items}/>
       </div>
     );
   }
