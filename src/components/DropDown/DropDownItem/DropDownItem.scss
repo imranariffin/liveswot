@@ -1,15 +1,16 @@
+@import '../../../global_variables';
 $height: 40px;
 
 .root {
   width: 100%;
   height: $height;
-  background: #599C04;
+  background: $theme-color;
   cursor: pointer;
   display: flex;
   flex-direction: row;
 
   &:hover {
-    background: #a4d49f;
+    background: $theme-color-secondary;
   }
 
   > div {

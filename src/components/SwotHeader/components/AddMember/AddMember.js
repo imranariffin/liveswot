@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './AddMember.scss';
+import Spinner from "../../../Spinner/Spinner";
 
 const AddMember = (props) => {
   const {
@@ -8,6 +9,7 @@ const AddMember = (props) => {
     hidden = false,
     hide,
     addMember,
+    isLoading,
   } = props;
 
   const onSubmit = (e) => {
@@ -29,8 +31,12 @@ const AddMember = (props) => {
           placeholder={'Add people to SWOT by username'}
         />
         <div
-            onClick={onClickClose}
-            className={styles["close-button"]}>
+          onClick={onClickClose}
+          className={`${styles['close-button']} ${isLoading ? styles.hidden : ''}`}>
+        </div>
+        <div
+          className={`${styles['spinner-container']} ${!isLoading ? styles.hidden : ''}`}>
+          <Spinner/>
         </div>
       </form>
     </div>

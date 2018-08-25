@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './SwotHeader.scss';
 import PropTypes from 'prop-types';
 import AddMember from './components/AddMember';
-import Card from "../Card/Card";
-import Kebab from "../Kebab/Kebab";
+import Card from '../Card/Card';
+import Kebab from '../Kebab/Kebab';
 import DropDown from '../DropDown';
 
 class SwotHeader extends React.Component {
