@@ -14,19 +14,13 @@ class SwotHeader extends React.Component {
       dropDownHidden: true,
       userName: '',
     };
-
-    this.hideAddMember = this.hideAddMember.bind(this);
-    this.showAddMember = this.showAddMember.bind(this);
-    this.updateUserName = this.updateUserName.bind(this);
-    this.showDropDown = this.showDropDown.bind(this);
-    this.hideDropDown = this.hideDropDown.bind(this);
   }
 
-  hideAddMember() {this.setState({addMemberHidden: true});}
+  hideAddMember = () => this.setState({addMemberHidden: true});
 
-  showAddMember() {this.setState({addMemberHidden: false});}
+  showAddMember = () => this.setState({addMemberHidden: false});
 
-  updateUserName(e) {this.setState({userName: e.target.value});}
+  updateUserName = (event) => this.setState({userName: event.target.value});
 
   hideDropDown = (event) => {
     event.preventDefault();
