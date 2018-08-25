@@ -1,9 +1,10 @@
 $height: 100px;
 
 .root {
+  display: flex;
   position: relative;
+  flex-direction: column;
   margin-bottom: 0;
-  height: $height;
   width: 100%;
 }
 

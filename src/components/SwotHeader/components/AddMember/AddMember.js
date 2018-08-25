@@ -1,37 +1,38 @@
 import React from 'react';
 import styles from './AddMember.scss';
 
-const AddMember = ({
-                     userName='',
-                     updateUserName,
-                     hidden = false,
-                     hide,
-                     addMember,
-}) => {
+const AddMember = (props) => {
+  const {
+    userName='',
+    updateUserName,
+    hidden = false,
+    hide,
+    addMember,
+  } = props;
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addMember(userName);
+    hide();
+  };
+
+  const onClickClose = () => hide();
+
   return (
-    <div className={`row ${styles.row} ${hidden ? styles.hidden : ''}`}>
-      <div className={`col s12 m12 l12 ${styles["no-padding"]}`}>
-        <form method={`POST`} onSubmit={(e) => {
-          e.preventDefault();
-          addMember(userName);
-          hide();
-        }}>
-          <div className={styles["input-container"]}>
-            <input
-              value={userName}
-              onChange={updateUserName}
-              type={`text`}
-              placeholder={'Add people to SWOT by username'}
-              className={styles.input}
-            />
-            <div
-                id={`some-id`}
-                onClick={() => hide()}
-                className={styles["close-button"]}>
-            </div>
-          </div>
-        </form>
-      </div>
+    <div className={`${styles.root} ${hidden ? styles.hidden : ''}`}>
+      <form className={styles.form} method={`POST`} onSubmit={onSubmit}>
+        <input
+          className={styles.input}
+          value={userName}
+          onChange={updateUserName}
+          type={`text`}
+          placeholder={'Add people to SWOT by username'}
+        />
+        <div
+            onClick={onClickClose}
+            className={styles["close-button"]}>
+        </div>
+      </form>
     </div>
   );
 };
