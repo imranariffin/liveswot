@@ -36,24 +36,30 @@ class Signup extends React.Component {
           <div className={styles['form-container']}>
             <h1 className={styles.title}>Signup to LiveSWOT</h1>
             <form className={styles.form} onSubmit={this.signup}>
-              <TextInput
-                forwardedRef={this.email}
-                label={`Email`}
-                type={`email`}
-                required={true}
-              />
-              <TextInput
-                forwardedRef={this.username}
-                label={`Username`}
-                type={`text`}
-                required={true}
-              />
-              <TextInput
-                forwardedRef={this.password}
-                label={`Password`}
-                type={`password`}
-                required={true}
-              />
+              <div className={styles['text-input-container']}>
+                <TextInput
+                  forwardedRef={this.email}
+                  label={`Email`}
+                  type={`email`}
+                  required={true}
+                />
+              </div>
+              <div className={styles['text-input-container']}>
+                <TextInput
+                  forwardedRef={this.username}
+                  label={`Username`}
+                  type={`text`}
+                  required={true}
+                />
+              </div>
+              <div className={styles['text-input-container']}>
+                <TextInput
+                  forwardedRef={this.password}
+                  label={`Password`}
+                  type={`password`}
+                  required={true}
+                />
+              </div>
               <input type='submit' className={styles.hidden}/>
               <Button type={`request`} disabled={isLoading} onClick={this.signup}>
                 signup
