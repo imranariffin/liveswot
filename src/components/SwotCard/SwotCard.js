@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import SwotItem from '../SwotItem';
 import {localizedText} from '../../utils/index';
 import styles from './SwotCard.scss';
+import Card from "../Card/Card";
+import TextInput from "../TextInput/TextInput";
 
 const DURATION_INVISIBLE = 300;
 
@@ -24,50 +26,50 @@ class SwotCard extends React.Component {
 
   render() {
     const {swotId, items, text, cardType, onChange, onSubmit} = this.props;
+    const cardStyles = {height: '100%', overflowY: 'auto', overflowX: 'hidden'};
 
     return (
-      <div>
+      <div className={styles.root}>
         <form method="POST" onSubmit={ (e) => {
           e.preventDefault();
           onSubmit(swotId, text, cardType);
         } }>
           <div className={`input-field ${styles["input-field"]}`}>
-            <input
-              id={`input-${cardType}`}
-              className={`${styles.validate} ${styles.input}`}
-              value={text}
-              type='text'
-              onChange={onChange}
-            />
-            <label
-              className={text ? styles.active : ''}
-              htmlFor={`input-${cardType}`}
-            >
-              {`Add ${localizedText().swot.cardType[cardType]}`}
-            </label>
+            <div className={styles['text-input-container']}>
+              <TextInput
+                label={`Add ${localizedText().swot.cardType[cardType]}`}
+                text={text}
+                onChange={onChange}
+                required={true}
+              />
+            </div>
           </div>
         </form>
-        <div className={`${styles["card-panel-wrapper"]}`}>
-          <div className={`card-panel ${styles["card-panel"]}`}>
-            {
-              (items.length > 0 &&
-                (<ul className={styles["swot-list"]}>{
-                  items.map((item, i) => {
-                    return (
-                      <SwotItem
-                        hidden={this.state.hidden}
-                        animate={this.animate}
-                        swotItem={item}
-                        key={i}
-                        index={i}
-                      />
-                    );
-                  })
-                }</ul>)
-              )
-              || <h1>{localizedText().swot.cardType[cardType]}</h1>
-            }
-          </div>
+        <div className={styles['card-container']}>
+          <Card style={cardStyles}>
+            <div>
+              <div className={`card-panel ${styles["card-panel"]}`}>
+                {
+                  (items.length > 0 &&
+                    (<ul className={styles["swot-list"]}>{
+                      items.map((item, i) => {
+                        return (
+                          <SwotItem
+                            hidden={this.state.hidden}
+                            animate={this.animate}
+                            swotItem={item}
+                            key={i}
+                            index={i}
+                          />
+                        );
+                      })
+                    }</ul>)
+                  )
+                  || <h1>{localizedText().swot.cardType[cardType]}</h1>
+                }
+              </div>
+            </div>
+          </Card>
         </div>
       </div>
     );

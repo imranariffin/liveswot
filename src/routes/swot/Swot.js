@@ -24,22 +24,22 @@ export default class Swot extends Component {
     }
 
 		return (
-			<div>
+			<div className={styles.root}>
 				<SwotHeader/>
-				<div className={`row ${styles["compact-row"]}`}>
-					<div className='col m6 s12'>
-						<SwotCard cardType='strength'/>
+				<div className={styles.row}>
+					<div className={`${styles.col} ${styles.left}`}>
+            <SwotCard cardType='strength'/>
 					</div>
-					<div className='col m6 s12'>
-						<SwotCard cardType='weakness'/>
+          <div className={`${styles.col} ${styles.right}`}>
+            <SwotCard cardType='weakness'/>
 					</div>
 				</div>
-        <div className={`row ${styles["compact-row"]}`}>
-					<div className='col m6 s12'>
-						<SwotCard cardType='opportunity'/>
+        <div className={styles.row}>
+          <div className={`${styles.col} ${styles.left}`}>
+            <SwotCard cardType='opportunity'/>
 					</div>
-					<div className='col m6 s12'>
-						<SwotCard cardType='threat'/>
+          <div className={`${styles.col} ${styles.right}`}>
+            <SwotCard cardType='threat'/>
 					</div>
 				</div>
 			</div>

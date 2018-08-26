@@ -57,6 +57,7 @@ class CreateSwot extends React.Component {
             <form className={styles.form}>
               <div className={styles['input-container']}>
                 <TextInput
+                  uncontrolled
                   type={'text'}
                   label={'Title'}
                   required={true}
@@ -65,6 +66,7 @@ class CreateSwot extends React.Component {
               </div>
               <div className={styles['input-container']}>
                 <TextInput
+                  uncontrolled
                   type={'text'}
                   label={'Description'}
                   required={true}

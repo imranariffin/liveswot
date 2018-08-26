@@ -1,4 +1,32 @@
-.compact-row {
+@import '../../global_variables';
+
+.root {
+  display: flex;
+  flex-direction: column;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.row {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+
+  @media (min-width: $screen-sm) {
+    height: 320px;
+  }
+
+  @media (min-width: $screen-lg) {
+    height: 370px;
+  }
+}
+
+.col {
+  width: 100%;
+  &.left {
+    margin-right: 5px;
+  }
+  &.right {
+    margin-left: 5px;
+  }
 }

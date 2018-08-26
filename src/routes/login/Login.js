@@ -33,6 +33,7 @@ class Login extends React.Component {
             <form className={styles.form} onSubmit={this.login}>
               <div className={styles['text-input-container']}>
                 <TextInput
+                  uncontrolled
                   forwardedRef={this.email}
                   label={`Email`}
                   type={`email`}
@@ -41,6 +42,7 @@ class Login extends React.Component {
               </div>
               <div className={styles['text-input-container']}>
                 <TextInput
+                  uncontrolled
                   forwardedRef={this.password}
                   label={`Password`}
                   type={`password`}
