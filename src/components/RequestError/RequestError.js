@@ -1,40 +1,34 @@
-import styles from './styles.scss';
 import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './RequestError.scss';
 
-class RequestError extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {closed: false};
+const RequestError = (props) => {
+  const {errors, clearError, errorType} = props;
+  const hidden = errors.length === 0;
 
-    this.close = this.close.bind(this);
-  }
-
-  close() {this.setState({closed: true});}
-
-  render() {
-    const {errors} = this.props;
-    const {closed} = this.state;
-    const hidden = closed || errors.length === 0;
-
-    return (
-      <div className={styles.wrapper}>
-        <div
-          className={`${styles.hide} ${hidden ? styles.hidden: ''}`}
-          onClick={() => this.close()}
-        >
-        </div>
-        <div
-          className={`${styles.container} ${hidden ? styles.hidden: ''}`}
-          onClick={() => this.close()}
-        >
-          <p>Error(s):</p>
-          {errors.map((error, i) => (
-            <p key={i}>{error.toString()}</p>
-          ))}
-        </div>
+  return (
+    <div className={styles.root}>
+      <div
+        className={`${styles.hide} ${hidden ? styles.hidden: ''}`}
+        onClick={clearError(errorType)}
+      >
       </div>
-    );
-  }
-}
+      <div
+        className={`${styles.container} ${hidden ? styles.hidden: ''}`}
+      >
+        <p>Error(s):</p>
+        {errors.map((error, i) => (
+          <p key={i}>{error.toString()}</p>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+RequestError.propTypes = {
+  errors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clearError: PropTypes.func.isRequired,
+  errorType: PropTypes.string.isRequired
+};
 
 export default RequestError;

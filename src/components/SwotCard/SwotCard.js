@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import SwotItem from '../SwotItem';
 import {localizedText} from '../../utils/index';
-import styles from './styles.scss';
+import styles from './SwotCard.scss';
+import Card from "../Card/Card";
+import TextInput from "../TextInput/TextInput";
 
 const DURATION_INVISIBLE = 300;
 
@@ -12,62 +14,52 @@ class SwotCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {hidden: false};
-    this.animate = this.animate.bind(this);
   }
 
-  animate() {
-    this.setState({hidden: true});
-    setTimeout(() => {
-      this.setState({hidden: false});
-    }, DURATION_INVISIBLE);
-  }
+  onSubmit = (event) => {
+    event.preventDefault();
+    const {swotId, text, cardType} = this.props;
+    this.props.onSubmit(swotId, text, cardType);
+  };
 
-  render() {
-    const {swotId, items, text, cardType, onChange, onSubmit} = this.props;
+render() {
+    const {items, text, cardType, onChange} = this.props;
+    const cardStyles = {
+      height: '100%',
+      overflowY: 'scroll',
+      overflowX: 'hidden',
+      padding: '5px 5px',
+    };
 
     return (
-      <div>
-        <form method="POST" onSubmit={ (e) => {
-          e.preventDefault();
-          onSubmit(swotId, text, cardType);
-        } }>
-          <div className={`input-field ${styles["input-field"]}`}>
-            <input
-              id={`input-${cardType}`}
-              className={`${styles.validate} ${styles.input}`}
-              value={text}
-              type='text'
-              onChange={onChange}
-            />
-            <label
-              className={text ? styles.active : ''}
-              htmlFor={`input-${cardType}`}
-            >
-              {`Add ${localizedText().swot.cardType[cardType]}`}
-            </label>
+      <div className={styles.root}>
+        <form method="POST" onSubmit={this.onSubmit}>
+          <div className={`${styles["input-field"]}`}>
+            <div className={styles['text-input-container']}>
+              <TextInput
+                label={`Add ${localizedText().swot.cardType[cardType]}`}
+                text={text}
+                onChange={onChange}
+                required={true}
+              />
+            </div>
           </div>
         </form>
-        <div className={`${styles["card-panel-wrapper"]}`}>
-          <div className={`card-panel ${styles["card-panel"]}`}>
-            {
-              (items.length > 0 &&
-                (<ul className={styles["swot-list"]}>{
-                  items.map((item, i) => {
-                    return (
-                      <SwotItem
-                        hidden={this.state.hidden}
-                        animate={this.animate}
-                        swotItem={item}
-                        key={i}
-                        index={i}
-                      />
-                    );
-                  })
-                }</ul>)
-              )
-              || <h1>{localizedText().swot.cardType[cardType]}</h1>
-            }
-          </div>
+        <div className={styles['card-container']}>
+          <Card style={cardStyles}>{
+            (items.length > 0 &&
+              items.map((item, i) => {
+                return (
+                  <SwotItem
+                    hidden={this.state.hidden}
+                    swotItem={item}
+                    key={i}
+                    index={i}
+                  />
+                );
+              }))
+            || <h1>{localizedText().swot.cardType[cardType]}</h1>
+          }</Card>
         </div>
       </div>
     );

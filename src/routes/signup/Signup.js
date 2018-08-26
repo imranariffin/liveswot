@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from './styles.scss';
-import RequestButton from '../../components/RequestButton';
+import styles from './Signup.scss';
 import RequestError from '../../components/RequestError';
+import Card from '../../components/Card';
+import TextInput from '../../components/TextInput';
+import Button from '../../components/Button';
 import {Link} from 'react-router-dom';
 
 class Signup extends React.Component {
@@ -10,61 +12,66 @@ class Signup extends React.Component {
     super(props);
 
     this.signup = this.signup.bind(this);
+    this.email = React.createRef();
+    this.username = React.createRef();
+    this.password = React.createRef();
   }
 
   signup(e) {
     e.preventDefault();
-    this.props.signup(
-      this.refs.email.value,
-      this.refs.username.value,
-      this.refs.password.value,
-    );
+    const
+      email = this.email.current.value,
+      username = this.username.current.value,
+      password = this.password.current.value;
+
+    this.props.signup(email, username, password);
   }
 
   render() {
-    const {user, disabled} = this.props;
+    const {user, isLoading} = this.props;
 
     return (
-      <div className={`row`}>
-        <div className={`col s1 m3 l3`}></div>
-        <div className={`col s10 m6 l6`}>
-          <div className={`card ${styles.card}`}>
-            <div className={`row`}>
-              <div className={`col s1 m1 l1`}></div>
-              <div className={`col s10 m10 l10`}>
-                <h4 className={styles.title}>Signup on LiveSWOT</h4>
-                <form onSubmit={this.signup} >
-                  <input
-                    type='email'
-                    ref='email'
-                    placeholder={`Email`}
-                  />
-                  <input
-                    type='text'
-                    ref='username'
-                    placeholder={`Username`}
-                  />
-                  <input
-                    type='password'
-                    ref='password'
-                    placeholder={`Password`}
-                  />
-                  <input type='submit' className={styles.hidden}/>
-                  <RequestButton
-                    text={`signup`}
-                    disabled={disabled}
-                    requestedItem={user}
-                    onClick={this.signup}
-                  />
-                </form>
-                <p>Already signed up? Login <Link to={`login`}>here</Link></p>
-                <RequestError errors={user.errors}/>
+      <div className={styles.root}>
+        <Card>
+          <div className={styles['form-container']}>
+            <h1 className={styles.title}>Signup to LiveSWOT</h1>
+            <form className={styles.form} onSubmit={this.signup}>
+              <div className={styles['text-input-container']}>
+                <TextInput
+                  uncontrolled
+                  forwardedRef={this.email}
+                  label={`Email`}
+                  type={`email`}
+                  required={true}
+                />
               </div>
-              <div className={`col s1 m1 l1`}></div>
-            </div>
+              <div className={styles['text-input-container']}>
+                <TextInput
+                  uncontrolled
+                  forwardedRef={this.username}
+                  label={`Username`}
+                  type={`text`}
+                  required={true}
+                />
+              </div>
+              <div className={styles['text-input-container']}>
+                <TextInput
+                  uncontrolled
+                  forwardedRef={this.password}
+                  label={`Password`}
+                  type={`password`}
+                  required={true}
+                />
+              </div>
+              <input type='submit' className={styles.hidden}/>
+              <Button type={`request`} disabled={isLoading} onClick={this.signup}>
+                signup
+              </Button>
+            </form>
+            <p>Already signed up? Login <Link to={`login`}>here</Link></p>
+            <RequestError errors={user.errors} errorType={'user'}/>
           </div>
-        </div>
-        <div className={`col s1 m3 l3`}></div>
+        </Card>
       </div>
     );
   }

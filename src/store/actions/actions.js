@@ -54,7 +54,7 @@ import {
   FETCH_MEMBERS_ERROR,
   ADD_MEMBER,
   ADD_MEMBER_SUCCESS,
-  ADD_MEMBER_ERROR,
+  ADD_MEMBER_ERROR, CLEAR_ERROR,
 } from './actionTypes';
 
 export const InitApp = () => {
@@ -217,5 +217,12 @@ export const AddMember = (swotId, userName) => {
     method: 'POST',
     body: {},
     endpoint: `/members/${userName}/swots/${swotId}/`,
+  };
+};
+
+export const ClearError = (errorType) => {
+  return {
+    type: CLEAR_ERROR,
+    errorType,
   };
 };

@@ -1,0 +1,62 @@
+@import '../../global_variables';
+
+$height: 50px;
+$side-width: 50px;
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  height: $height;
+  border: 1px solid gray;
+  border-top: 0;
+  font-size: 12px;
+
+  &.first {
+    border-top: 1px solid gray;
+  }
+
+  &:hover {
+  }
+}
+
+.left {
+  padding: 0;
+  width: $side-width;
+  display: flex;
+
+  > div {
+    margin: auto;
+    width: $height - 10;
+    height: $height - 10;
+    border-radius: 50%;
+    background: $theme-color;
+  }
+}
+
+.mid {
+  width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  padding: 5px;
+}
+
+.right {
+  width: $side-width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left, .right {
+  box-sizing: border-box;
+}
+
+.vote-container {
+  height: 35px;
+  margin: auto;
+}

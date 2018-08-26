@@ -1,0 +1,45 @@
+@import "../layouts_variables";
+@import "../../global_variables";
+
+.root {
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.container {
+  height: 100%;
+  margin: 0 auto;
+  width: $width-xs;
+  padding: $padding-xs;
+  box-sizing: border-box;
+
+  @media (min-width: $screen-sm) {
+    width: $width-sm;
+    padding: $padding-sm;
+    transform: translateX(8px);
+  }
+
+  @media (min-width: $screen-md) {
+    width: $width-md;
+    padding: $padding-md;
+    transform: translateX(8px);
+  }
+
+  @media (min-width: $screen-lg) {
+    width: $width-lg;
+    padding: $padding-lg;
+    transform: translateX(8px);
+  }
+}
+
+.mid-cell {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 12px;
+}
+
+.grid {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

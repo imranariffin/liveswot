@@ -1,3 +1,4 @@
 import RequestError from './RequestError';
+import RequestErrorContainer from './RequestErrorContainer';
 
-export default RequestError;
+export default RequestErrorContainer(RequestError);

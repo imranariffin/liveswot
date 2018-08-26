@@ -67,3 +67,5 @@ export const ADD_MEMBER_SUCCESS = 'ADD_MEMBER_SUCCESS';
 export const ADD_MEMBER_ERROR = 'ADD_MEMBER_ERROR';
 
 export const LOAD_TOKEN = 'LOAD_TOKEN';
+
+export const CLEAR_ERROR = 'CLEAR_ERROR';

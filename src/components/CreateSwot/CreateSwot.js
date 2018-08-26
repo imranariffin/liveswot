@@ -1,5 +1,9 @@
 import React from 'react';
-import styles from './styles.scss';
+import Card from '../Card';
+import styles from './CreateSwot.scss';
+import Button from '../Button';
+import TextInput from '../TextInput/TextInput';
+import {CANCEL} from '../Button/constants';
 
 class CreateSwot extends React.Component {
   constructor(props) {
@@ -12,58 +16,70 @@ class CreateSwot extends React.Component {
     this.cancel = this.cancel.bind(this);
     this.clear = this.clear.bind(this);
     this.edit = this.edit.bind(this);
+
+    /* refs */
+    this.title = React.createRef();
+    this.description = React.createRef();
   }
 
   submit(e) {
     e.preventDefault();
-    this.props.onSubmit(
-      this.refs.title.value,
-      this.refs.description.value,
-    );
+
+    const title = this.title.current.value;
+    const description = this.description.current.value;
+    this.props.onSubmit(title, description);
+
     this.clear();
   }
 
-  cancel() {this.setState({isEdit: false});}
+  cancel(e) {
+    e.preventDefault();
+    this.setState({isEdit: false});
+  }
 
   edit() {this.setState({isEdit: true});}
 
   clear() {
-    this.refs.title.value = '';
-    this.refs.description.value = '';
+    this.title.current.value = '';
+    this.description.current.value = '';
   }
 
   render() {
     const {isEdit} = this.state;
 
-    let component = (
-      <form method={`POST`} onSubmit={this.submit}>
-        <input type={`text`} ref={`title`} placeholder={`SWOT Title`}/>
-        <input type={`text`} ref={`description`} placeholder={`Description`}/>
-        <input type={`submit ${styles.hidden}`}/>
-        <button className={`btn ${styles["submit-button"]}`} onClick={this.submit}>
-          create
-        </button>
-        <button className={`btn ${styles["cancel-button"]}`} onClick={() => this.cancel()}>
-          cancel
-        </button>
-      </form>
-    );
-
-    if (!isEdit) {
-      component = (
-        <button className={`btn ${styles.button}`} onClick={this.edit}>
-          create new swot
-        </button>
-      );
-    }
-
     return (
-      <div className={`row ${isEdit ? 'card' : ''} ${styles.container}`}>
-        <div className={`col s0 m2 l2`}></div>
-        <div className={`col s12 m8 l8 ${styles["align-center"]}`}>
-          {component}
+      <div>
+        <div className={`${isEdit ? styles.hide : ''} ${styles["input-container"]} ${styles["submit-container"]}`}>
+          <Button onClick={this.edit}>Create Swot</Button>
         </div>
-        <div className={`col s0 m2 l2`}></div>
+        <div className={`${styles.root} ${isEdit ? '' : styles.hide}`}>
+          <Card>
+            <form className={styles.form}>
+              <div className={styles['input-container']}>
+                <TextInput
+                  uncontrolled
+                  type={'text'}
+                  label={'Title'}
+                  required={true}
+                  forwardedRef={this.title}
+                />
+              </div>
+              <div className={styles['input-container']}>
+                <TextInput
+                  uncontrolled
+                  type={'text'}
+                  label={'Description'}
+                  required={true}
+                  forwardedRef={this.description}
+                />
+              </div>
+              <div className={`${styles['input-container']} ${styles['submit-container']}`}>
+                <Button onClick={this.submit}>Create</Button>
+                <Button type={CANCEL} onClick={this.cancel}>Cancel</Button>
+              </div>
+            </form>
+          </Card>
+        </div>
       </div>
     );
   }

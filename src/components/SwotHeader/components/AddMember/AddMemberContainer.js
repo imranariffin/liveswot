@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {AddMember} from '../../../../store/actions/index';
 
-export const mapStateToProps = () => ({});
+export const mapStateToProps = (state, props) => ({});
 
 export const mapDispatchToProps = (dispatch, ownProps) => ({
   addMember: (userName) => {

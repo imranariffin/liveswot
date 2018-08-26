@@ -1,0 +1,55 @@
+@import '../../global_variables';
+
+$input-width: 100%;
+
+.root {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  height: auto;
+
+  &.hide {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.form {
+  box-sizing: border-box;
+  padding: 15px;
+
+  @media (min-width: $screen-sm) {
+    padding: 15px 75px;
+  }
+
+  @media (min-width: $screen-md) {
+    padding: 15px 140px;
+  }
+
+  @media (min-width: $screen-lg) {
+    padding: 15px 175px;
+  }
+}
+
+.input-container {
+  width: $input-width;
+  margin: 15px auto 25px auto;
+}
+
+.submit-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  height: auto;
+
+  &.hide {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+.text-input {
+  box-sizing: border-box;
+  width: 100%;
+}

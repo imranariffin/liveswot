@@ -1,0 +1,86 @@
+@import "../../global_variables";
+
+.root {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.input {
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background: inherit;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.label {
+  box-sizing: border-box;
+  color: #999;
+  font-size: 14px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+input:focus ~ label, input:valid ~ label {
+  top: -10px;
+  font-size: 12px;
+  color: $theme-color;
+}
+
+.bar {
+  box-sizing: border-box;
+  position: relative;
+  display: block; width: 100%;
+}
+
+.bar:before, .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: $theme-color;
+  transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+input:focus ~ .highlight {
+  animation: inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+  from { background: $theme-color; }
+  to { width: 0; background: transparent; }
+}

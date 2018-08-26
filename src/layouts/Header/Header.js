@@ -1,39 +1,41 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { localizedText } from '../../utils/index';
-import styles from './styles.scss';
+import styles from './Header.scss';
+import {Link} from 'react-router-dom';
 
-const Header = ({logout, username, email, profileImg, isLoggedIn}) => {
+const Header = (props) => {
+  const {logout, showLogin, showLogout} = props;
+  const {login, logout: logoutTxt, brand} = localizedText();
+
   return (
-    <div className={`navbar-fixed ${styles["nav-fixed"]}`}>
-      <nav className={`${styles.nav}`}>
-        <div className={`nav-wrapper ${styles["nav-wrapper"]}`}>
-          <div className={`row ${styles["row-no-margin"]}`}>
-            <div className={`col l1`}></div>
-            <div className={`col l10 ${styles["nav-main"]}`}>
-              <Link to='/' className='brand-logo'>{localizedText().title}</Link>
-              <ul id='nav-mobile' className='right hide-on-med-and-down'>
-                {!isLoggedIn && <li><Link to='/login'>Login</Link></li>}
-                {isLoggedIn && <li><Link to='' onClick={() => logout()}>Logout</Link></li>}
-                {isLoggedIn &&
-                <li className={`${styles["nav-bar-list"]}`}>
-                  <Link to='/profile'>
-                    <div className={`right ${styles["profile-img-wrapper"]}`}>
-                      <img
-                        alt={username}
-                        className={`circle responsive-img ${styles["profile-img"]}`}
-                        src={profileImg}
-                      />
-                    </div>
-                  </Link></li>}
-              </ul>
-            </div>
-            <div className={`col l1`}></div>
+    <div className={`${styles.root}`}>
+      <div className={styles.container}>
+        <Link className={`${styles.brand}`} to={`/`}>{brand}</Link>
+        <div className={`${styles["items-container"]}`}>
+          <div className={`${styles.item} ${styles["left-end"]}`}>
+            {showLogin && <Link to={'login'}>
+              <span className={styles.link}>{login}</span>
+            </Link>}
+          </div>
+          <div className={`${styles.item}`} onClick={logout}>
+            {showLogout && <Link to={'login'}>
+              <span className={styles.link}>{logoutTxt}</span>
+            </Link>}
           </div>
         </div>
-      </nav>
+      </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  logout: PropTypes.func.isRequired,
+  username: PropTypes.string,
+  email: PropTypes.string,
+  profileImg: PropTypes.string,
+  showLogin: PropTypes.bool.isRequired,
+  showLogout: PropTypes.bool.isRequired,
 };
 
 export default Header;

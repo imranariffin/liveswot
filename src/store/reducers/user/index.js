@@ -40,6 +40,14 @@ const user = (state = initialState, action) => {
         isLoading: false,
       };
     }
+    case types.CLEAR_ERROR:
+      if (action.errorType !== 'user') {
+        return state;
+      }
+      return {
+        ...state,
+        errors: [],
+      };
     default:
       return state;
   }

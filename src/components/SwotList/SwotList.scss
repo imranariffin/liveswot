@@ -1,0 +1,105 @@
+@import '../../global_variables';
+
+$height: 70px;
+$img-size: 50px;
+$action-width: 15px;
+
+.root {
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  height: $height;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  cursor: default;
+  margin-bottom: 1px;
+
+  &:hover {
+    background: $almost-white;
+  }
+
+  &.last {
+    margin-bottom: 15px;
+  }
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.creator {
+  height: 100%;
+  width: $height;
+  flex-shrink: 0;
+  display: flex;
+
+  > .container {
+    width: $img-size;
+    height: $img-size;
+    margin: auto auto;
+
+    > .img {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      background: $theme-color;
+      border-radius: 50%;
+    }
+  }
+}
+
+.hey {
+  font-size: 18px;
+}
+
+.content {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+
+  > div {
+    width: 100%;
+  }
+
+  > .title {
+    font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  > .description {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.actions {
+
+  flex-direction: row;
+  flex-grow: 0;
+  padding: 5px 5px 0 0;
+
+  @media (min-width: $screen-md) {
+    display: none;
+
+    &.active {
+      display: flex;
+      flex-grow: 0;
+      flex-direction: row;
+    }
+  }
+}

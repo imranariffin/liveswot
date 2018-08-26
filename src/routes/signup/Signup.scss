@@ -1,0 +1,30 @@
+.root {
+  width: 450px;
+  margin: auto;
+}
+
+.form-container {
+  padding: 35px;
+}
+
+.text-input-container {
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+.form {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.title {
+  text-align: center;
+  margin: 25px 0 45px 0;
+  font-weight: normal;
+}
+
+.hidden {
+  display: none;
+}

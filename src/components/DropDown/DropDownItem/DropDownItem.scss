@@ -1,0 +1,32 @@
+@import '../../../global_variables';
+$height: 40px;
+
+.root {
+  width: 100%;
+  height: $height;
+  background: $theme-color;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+
+  &:hover {
+    background: $theme-color-secondary;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.text {
+  flex-grow: 1;
+  margin-left: 15px;
+}
+
+.icon {
+  align-items: center;
+  width: $height;
+  height: $height;
+}

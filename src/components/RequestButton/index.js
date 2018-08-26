@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.scss';
+import styles from './RequestButton.scss';
 
 const RequestButton = ({text, onClick, requestedItem}) => {
 
@@ -10,7 +10,7 @@ const RequestButton = ({text, onClick, requestedItem}) => {
       <div className={`${styles.wrapper} ${styles.loading}`}>
         <input
             type={`submit`}
-            className={`waves-effect waves-light btn ${button} ${isLoading ? `disabled ${loading}` : ''}`}
+            className={`${button} ${isLoading ? loading : ''}`}
             onClick={onClick}
             value={text}
         />
