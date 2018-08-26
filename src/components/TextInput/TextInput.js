@@ -1,26 +1,43 @@
 import React from 'react';
-import PropType from 'prop-types';
-import styles from './TextInput.scss';
+import PropTypes from 'prop-types';
+import UncontrolledTextInput from './UncontrolledTextInput';
+import ControlledTextInput from './ControlledTextInput/ControlledTextInput';
 
 const TextInput = (props) => {
-  const {label, forwardedRef, type, required} = props;
+  const {uncontrolled, required, label} = props;
+
+  if (uncontrolled) {
+    const {forwardedRef} = props;
+    return (
+      <UncontrolledTextInput
+        label={label}
+        forwardedRef={forwardedRef}
+        required={required}
+      />
+    );
+  }
+  const {text, onChange} = props;
+
   return (
-    <div className={styles.root}>
-      <input type={type ? type : 'text'} required={required} className={styles.input} ref={forwardedRef}/>
-      <span className={styles.highlight}></span>
-      <span className={styles.bar}></span>
-      <label className={styles.label}>{label + (required ? '*' : '')}</label>
-    </div>
+    <ControlledTextInput
+      required={required}
+      label={label}
+      onChange={onChange}
+      text={text}
+    />
   );
 };
 
 TextInput.propTypes = {
-  label: PropType.string.isRequired,
-  forwardedRef: PropType.shape({
-    current: PropType.object
-  }).isRequired,
-  type: PropType.string,
-  required: PropType.bool.isRequired,
+  label: PropTypes.string.isRequired,
+  required: PropTypes.bool.isRequired,
+  uncontrolled: PropTypes.bool,
+  forwardedRef: PropTypes.shape({
+    current: PropTypes.object
+  }),
+  type: PropTypes.string,
+  text: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 export default TextInput;
