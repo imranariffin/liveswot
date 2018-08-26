@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .text-input-container {
@@ -11,6 +12,7 @@
 }
 
 .card-container {
+  margin-right: -15px;
   display: flex;
   height: 100%;
   flex-direction: column;
