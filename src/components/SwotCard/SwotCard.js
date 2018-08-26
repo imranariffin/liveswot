@@ -26,7 +26,7 @@ render() {
     const {items, text, cardType, onChange} = this.props;
     const cardStyles = {
       height: '100%',
-      overflowY: 'auto',
+      overflowY: 'scroll',
       overflowX: 'hidden',
       padding: '5px 5px',
     };
