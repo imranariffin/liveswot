@@ -16,13 +16,6 @@ class SwotCard extends React.Component {
     this.state = {hidden: false};
   }
 
-  animate = () => {
-    this.setState({hidden: true});
-    setTimeout(() => {
-      this.setState({hidden: false});
-    }, DURATION_INVISIBLE);
-  };
-
   onSubmit = (event) => {
     event.preventDefault();
     const {swotId, text, cardType} = this.props;
@@ -59,7 +52,6 @@ render() {
                 return (
                   <SwotItem
                     hidden={this.state.hidden}
-                    animate={this.animate}
                     swotItem={item}
                     key={i}
                     index={i}

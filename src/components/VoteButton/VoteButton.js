@@ -2,35 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './VoteButton.scss';
 
+const VoteButton = (props) => {
+  const {
+    score,
+    isUpActive,
+    isDownActive,
+    swotItemId,
+    userId,
+    onVoteItem
+  } = props;
 
-const VoteButton = ({score, isUpActive, isDownActive, swotItemId, userId, onVoteItem, animate}) => (
-  <div className={styles["vote-container-styles"]}>
-    <div className={styles["vote-up-container-styles"]}>
+  const onVoteItemDown = () => onVoteItem(swotItemId, 'down', userId);
+  const onVoteItemUp = () => onVoteItem(swotItemId, 'up', userId);
+
+  return (
+    <div className={styles.root}>
       <div
-        className={`${styles["vote-up-styles"]} ${isUpActive ? styles.active : ''}`}
-        onClick={() => {
-          onVoteItem(swotItemId, 'up', userId);
-          animate();
-        }}
+        className={`${styles['vote-up']} ${isUpActive ? styles.active : ''}`}
+        onClick={onVoteItemUp}
+      >
+      </div>
+      <div className={styles['score-container']}>
+        {score}
+      </div>
+      <div
+        className={`${styles['vote-down']} ${isDownActive ? styles.active : ''}`}
+        onClick={onVoteItemDown}
       >
       </div>
     </div>
-    <div className={styles["score-container-styles"]}
-    >{
-      score
-    }</div>
-    <div className={styles["vote-down-container-styles"]}>
-      <div
-        className={`${styles["vote-down-styles"]} ${isDownActive ? styles.active : ''}`}
-        onClick={() => {
-          onVoteItem(swotItemId, 'down', userId);
-          animate();
-        }}
-      >
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 VoteButton.propTypes = {
   swotItemId: PropTypes.number.isRequired,
