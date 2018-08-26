@@ -1,61 +1,38 @@
+$height: 50px;
+$side-width: 50px;
 
-$borderColor: #e6e6e6;
-$widthPercent: 96;
-$marginLeftPercent: (100 - $widthPercent) / 2;
-$marginRightPercent: $marginLeftPercent;
-
-.swot-item {
-  width: $widthPercent + '%';
-  min-height: 32px;
-  border-top: 1px solid $borderColor;
-  border-bottom: 1px solid $borderColor;
-  padding: 0.5rem 0.5rem;
-  margin-left: $marginLeftPercent + '%';
-  margin-right: $marginRightPercent + '%';
-  transition: ease-in-out 0.2s 0.2s;
-  opacity: 0;
-  visibility: hidden;
-
-  &.first {
-    border-top: 0;
-  }
-
-  &.show {
-    opacity: 1;
-    visibility: visible;
-  }
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  height: $height;
+  border: 1px solid gray;
+  border-top: 0;
 
   &:hover {
-    transition: ease-in-out 0.1s;
-    transform: scale(1.005);
-    cursor: pointer;
   }
-}
-
-.swot-item-row {
-  margin: 0;
-};
-
-.text-column {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.vote-column {
-  height: 32px;
-  padding: 0 5.28px;
 }
 
 .left {
   padding: 0;
+  width: $side-width;
 }
 
-.creator-img-wrapper {
-  width: 32px;
-  height: 32px;
+.mid {
+  width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  padding: 5px;
 }
 
-.creator-img {
-  height: 100%;
-  width: 100%;
+.right {
+  width: $side-width;
+}
+
+.left, .right {
+  box-sizing: border-box;
 }

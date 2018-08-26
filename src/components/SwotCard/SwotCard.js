@@ -14,26 +14,28 @@ class SwotCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {hidden: false};
-    this.animate = this.animate.bind(this);
   }
 
-  animate() {
+  animate = () => {
     this.setState({hidden: true});
     setTimeout(() => {
       this.setState({hidden: false});
     }, DURATION_INVISIBLE);
-  }
+  };
 
-  render() {
-    const {swotId, items, text, cardType, onChange, onSubmit} = this.props;
+  onSubmit = (event) => {
+    event.preventDefault();
+    const {swotId, text, cardType} = this.props;
+    this.props.onSubmit(swotId, text, cardType);
+  };
+
+render() {
+    const {items, text, cardType, onChange} = this.props;
     const cardStyles = {height: '100%', overflowY: 'auto', overflowX: 'hidden'};
 
     return (
       <div className={styles.root}>
-        <form method="POST" onSubmit={ (e) => {
-          e.preventDefault();
-          onSubmit(swotId, text, cardType);
-        } }>
+        <form method="POST" onSubmit={this.onSubmit}>
           <div className={`input-field ${styles["input-field"]}`}>
             <div className={styles['text-input-container']}>
               <TextInput
@@ -46,30 +48,21 @@ class SwotCard extends React.Component {
           </div>
         </form>
         <div className={styles['card-container']}>
-          <Card style={cardStyles}>
-            <div>
-              <div className={`card-panel ${styles["card-panel"]}`}>
-                {
-                  (items.length > 0 &&
-                    (<ul className={styles["swot-list"]}>{
-                      items.map((item, i) => {
-                        return (
-                          <SwotItem
-                            hidden={this.state.hidden}
-                            animate={this.animate}
-                            swotItem={item}
-                            key={i}
-                            index={i}
-                          />
-                        );
-                      })
-                    }</ul>)
-                  )
-                  || <h1>{localizedText().swot.cardType[cardType]}</h1>
-                }
-              </div>
-            </div>
-          </Card>
+          <Card style={cardStyles}>{
+            (items.length > 0 &&
+              items.map((item, i) => {
+                return (
+                  <SwotItem
+                    hidden={this.state.hidden}
+                    animate={this.animate}
+                    swotItem={item}
+                    key={i}
+                    index={i}
+                  />
+                );
+              }))
+            || <h1>{localizedText().swot.cardType[cardType]}</h1>
+          }</Card>
         </div>
       </div>
     );
