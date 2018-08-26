@@ -10,7 +10,7 @@ describe('(RequestErrorContainer) mapDispatchToProps', () => {
       const ownProps = {};
       const props = mapDispatchToProps(dispatch, ownProps);
 
-      expect(props.clearError).to.be.an('function');
+      expect(props.clearError).to.be.a('function');
     });
 
     it('should dispatch `CLEAR_ERROR` action when called', () => {
@@ -19,7 +19,7 @@ describe('(RequestErrorContainer) mapDispatchToProps', () => {
       const errorType = 'user';
       const props = mapDispatchToProps(dispatch, ownProps);
 
-      props.clearError();
+      props.clearError(errorType)();
 
       assert.calledOnce(dispatch);
       assert.calledWith(dispatch, ClearError(errorType));

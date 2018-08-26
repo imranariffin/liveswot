@@ -26,7 +26,7 @@ const RequestError = (props) => {
 };
 
 RequestError.propTypes = {
-  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  errors: PropTypes.arrayOf(PropTypes.object).isRequired,
   clearError: PropTypes.func.isRequired,
   errorType: PropTypes.string.isRequired
 };
