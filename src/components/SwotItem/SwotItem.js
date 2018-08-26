@@ -23,32 +23,6 @@ const SwotItem = (props) => {
       </div>
     </div>
   );
-
-  // return (
-  //   <div className={`${styles["swot-item"]} ${hidden ? '' : styles.show} ${index === 0 ? styles.first : ''}`}>
-  //     <div className={`${styles["swot-item-row"]}`}>
-  //       <div className={`${styles.left}`}>
-  //         <div className={styles["creator-img-wrapper"]}>
-  //           <img
-  //             className={`${styles["creator-img"]}`}
-  //             src={profileImg}
-  //             alt={`item creator: ${swotItem.creatorId}`}
-  //           />
-  //         </div>
-  //       </div>
-  //       <div className={`${styles["text-column"]}`}>
-  //         <span>{`${swotItem.text}`}</span>
-  //       </div>
-  //       <div className={`${styles["vote-column"]}`}>
-  //         <VoteButton
-  //           animate={animate}
-  //           score={votes}
-  //           swotItemId={swotItem.swotItemId}
-  //         />
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };
 
 SwotItem.propTypes = {

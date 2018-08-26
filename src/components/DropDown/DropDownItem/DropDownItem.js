@@ -16,7 +16,7 @@ const DropDownItem = (props) => {
     >
       <div className={styles.text}>{text}</div>
       <div className={styles.icon}>
-        <i className='material-icons' style={{color: iconColor}}>{icon}</i>
+          <i className='material-icons' style={{color: iconColor}}>{icon}</i>
       </div>
     </div>
   );

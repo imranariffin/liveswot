@@ -34,7 +34,7 @@ render() {
     return (
       <div className={styles.root}>
         <form method="POST" onSubmit={this.onSubmit}>
-          <div className={`input-field ${styles["input-field"]}`}>
+          <div className={`${styles["input-field"]}`}>
             <div className={styles['text-input-container']}>
               <TextInput
                 label={`Add ${localizedText().swot.cardType[cardType]}`}
