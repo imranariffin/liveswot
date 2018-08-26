@@ -31,7 +31,12 @@ class SwotCard extends React.Component {
 
 render() {
     const {items, text, cardType, onChange} = this.props;
-    const cardStyles = {height: '100%', overflowY: 'auto', overflowX: 'hidden'};
+    const cardStyles = {
+      height: '100%',
+      overflowY: 'auto',
+      overflowX: 'hidden',
+      padding: '5px 5px',
+    };
 
     return (
       <div className={styles.root}>
